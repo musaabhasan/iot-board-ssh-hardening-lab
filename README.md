@@ -1,4 +1,4 @@
-﻿# IoT Board SSH Hardening Lab
+# IoT Board SSH Hardening Lab
 
 A PHP 8.x and MySQL 8.0 research portal for assessing SSH exposure on Raspberry Pi and comparable IoT development boards.
 
