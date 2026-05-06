@@ -1,0 +1,22 @@
+{
+  "name": "musaabhasan/iot-board-ssh-hardening-lab",
+  "description": "PHP/MySQL research portal for assessing and hardening SSH exposure on IoT development boards.",
+  "type": "project",
+  "license": "MIT",
+  "require": {
+    "php": "^8.2",
+    "ext-json": "*",
+    "ext-pdo": "*",
+    "ext-pdo_mysql": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "IotBoardLab\\": "src/"
+    }
+  },
+  "scripts": {
+    "lint": "php -d display_errors=1 bin/lint.php",
+    "test": "php -d display_errors=1 bin/test.php"
+  }
+}
+

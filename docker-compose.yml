@@ -1,0 +1,39 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8085:80"
+    environment:
+      APP_ENV: local
+      APP_DEBUG: "false"
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_DATABASE: iot_board_lab
+      DB_USERNAME: iot_board_lab
+      DB_PASSWORD: change-this-password
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  mysql:
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_DATABASE: iot_board_lab
+      MYSQL_USER: iot_board_lab
+      MYSQL_PASSWORD: change-this-password
+      MYSQL_ROOT_PASSWORD: change-this-root-password
+    ports:
+      - "33085:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./database/migrations/001_create_core_tables.sql:/docker-entrypoint-initdb.d/001_create_core_tables.sql:ro
+      - ./database/seeders/001_seed_research_data.sql:/docker-entrypoint-initdb.d/002_seed_research_data.sql:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 8
+
+volumes:
+  mysql_data:
