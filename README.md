@@ -88,9 +88,8 @@ This repository is designed for defensive assessment, secure configuration, and 
 - Restrict database and administration access to trusted networks.
 - Forward authentication, assessment, and administrative events to a protected logging platform.
 - Treat board identifiers, network paths, SSH fingerprints, and hardening evidence as sensitive operational data.
-- Review generated recommendations through security governance before using them as formal compliance evidence.
+- Review assessment recommendations through security governance before using them as formal compliance evidence.
 
 ## License
 
 MIT License. See [LICENSE](LICENSE).
-
